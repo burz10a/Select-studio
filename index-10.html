@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Select Studio — Barber Shop Plewiska</title>
+<meta name="description" content="Select Studio — premium barber shop w Plewiska. Jarzębinowa 1/35. 5.0 na Google, 23 opinie. Kosmetyki Balmain Paris.">
+<link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin>
+<link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --paper:#FAF6EE;
+  --white:#FFFFFF;
+  --sand:#F1E9DA;
+  --sand-deep:#E7DBC3;
+  --line:#E0D4BC;
+  --ink:#221E1A;
+  --ink-soft:#6B6155;
+  --clay:#A9805C;
+  --clay-soft:#C2A581;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Aileron',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  font-weight:300;
+}
+a{color:inherit}
+img{display:block;max-width:100%}
+
+/* ===== TYPE ===== */
+.serif{font-family:'Oswald',sans-serif;font-weight:600;font-style:italic}
+.serif-i{font-family:'Oswald',sans-serif;font-weight:600;font-style:italic}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:10px;font-weight:500;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--clay);
+}
+.eyebrow::before{content:'';width:22px;height:1px;background:var(--clay-soft)}
+
+/* ===== NAV ===== */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:72px;padding:0 56px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(250,246,238,.86);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
+.nav-logo{
+  font-family:'Oswald',sans-serif;font-size:19px;font-weight:600;font-style:italic;letter-spacing:.04em;
+  text-decoration:none;color:var(--ink);
+}
+.nav-links{list-style:none;display:flex;gap:34px}
+.nav-links a{
+  font-size:11px;font-weight:400;letter-spacing:.1em;
+  text-transform:uppercase;text-decoration:none;color:var(--ink-soft);
+  transition:color .25s var(--ease);
+  position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;left:0;right:0;bottom:-5px;height:1px;
+  background:var(--clay);transform:scaleX(0);transform-origin:right;
+  transition:transform .3s var(--ease);
+}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
+.nav-actions{display:flex;align-items:center;gap:12px}
+.icon-btn{
+  width:36px;height:36px;border-radius:50%;
+  border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--ink);text-decoration:none;
+  transition:all .25s var(--ease);
+}
+.icon-btn:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.icon-btn svg{width:15px;height:15px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  font-family:'Aileron',sans-serif;font-size:11px;font-weight:500;
+  letter-spacing:.12em;text-transform:uppercase;
+  text-decoration:none;cursor:pointer;border:none;
+  border-radius:4px;transition:all .3s var(--ease);white-space:nowrap;
+}
+.btn-fill{
+  background:var(--ink);color:var(--paper);padding:13px 26px;
+}
+.btn-fill:hover{background:#3a342c;transform:translateY(-2px);box-shadow:0 10px 28px rgba(34,30,26,.18)}
+.btn-fill-lg{padding:17px 38px;font-size:12px}
+.btn-outline{
+  background:transparent;color:var(--ink);padding:16px 36px;
+  border:1px solid var(--ink);
+}
+.btn-outline:hover{background:var(--ink);color:var(--paper);transform:translateY(-2px)}
+
+/* ===== HERO ===== */
+.hero{
+  padding:168px 24px 0;
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+}
+.hero-inner{max-width:680px}
+.hero h1{
+  margin-top:26px;
+  font-size:clamp(44px,6.4vw,82px);
+  font-weight:300;font-style:italic;line-height:1.04;letter-spacing:-.01em;
+}
+.hero h1 em{font-style:normal;color:var(--clay)}
+.hero-sub{
+  margin:26px auto 0;max-width:440px;
+  font-size:15px;line-height:1.8;color:var(--ink-soft);font-weight:700;
+}
+.hero-cta{
+  display:flex;flex-direction:column;align-items:center;gap:18px;
+  margin-top:40px;
+}
+.hero-rating{
+  font-size:12px;letter-spacing:.05em;color:var(--ink-soft);
+  display:flex;align-items:center;gap:7px;
+}
+.hero-rating .stars{color:var(--clay);font-size:13px;letter-spacing:1px}
+
+.hero-frame{
+  margin:76px auto 0;max-width:560px;width:100%;
+  padding:14px;background:var(--white);
+  border-radius:6px;box-shadow:0 30px 70px -25px rgba(34,30,26,.22);
+}
+.hero-frame .ph{border-radius:3px;overflow:hidden;aspect-ratio:4/3}
+.hero-frame img{width:100%;height:100%;object-fit:cover}
+.frame-cap{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 6px 4px;font-size:10px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-soft);
+}
+.frame-cap .num{color:var(--clay);font-weight:500}
+
+/* ===== RIBBON ===== */
+.ribbon{
+  margin-top:90px;padding:15px 0;
+  background:var(--white);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  overflow:hidden;white-space:nowrap;display:flex;
+}
+.ribbon-track{display:inline-flex;animation:tick 30s linear infinite}
+.ribbon-item{
+  display:inline-flex;align-items:center;gap:22px;padding-right:38px;
+  font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-soft);
+}
+.ribbon-dot{width:3px;height:3px;border-radius:50%;background:var(--clay)}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ===== SHARED SECTION BITS ===== */
+.wm{
+  position:absolute;font-family:'Oswald',sans-serif;font-weight:700;
+  font-size:clamp(120px,16vw,220px);color:var(--ink);opacity:.035;
+  line-height:1;pointer-events:none;user-select:none;letter-spacing:-.04em;
+}
+.label-row{margin-bottom:18px}
+.block-h{
+  font-size:clamp(34px,4vw,52px);font-weight:300;font-style:italic;line-height:1.06;
+  letter-spacing:-.01em;margin-top:18px;
+}
+.block-p{
+  font-size:14.5px;line-height:1.85;color:var(--ink-soft);font-weight:700;
+  max-width:480px;margin-top:22px;
+}
+
+/* ===== ABOUT 01 ===== */
+.about-01{
+  position:relative;overflow:hidden;
+  padding:130px 56px 110px;
+  display:grid;grid-template-columns:.85fr 1fr;gap:90px;
+}
+.wm-01{top:-.18em;left:40px}
+
+/* ===== GALLERY ===== */
+.gallery{
+  position:relative;background:var(--sand);
+  padding:110px 56px;overflow:hidden;
+}
+.gallery-head{max-width:560px;margin:0 0 64px;text-align:left}
+.gallery-head .block-p{margin-left:0;margin-right:0}
+.gallery-grid{
+  max-width:1180px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:28px;
+}
+.g-frame{
+  background:var(--white);padding:10px;border-radius:6px;
+  box-shadow:0 20px 50px -22px rgba(34,30,26,.16);
+}
+.g-frame .ph{border-radius:3px;overflow:hidden;aspect-ratio:3/4}
+.g-frame img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.g-frame:hover img{transform:scale(1.045)}
+.g-cap{padding:13px 6px 3px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);display:flex;justify-content:space-between}
+.g-cap .num{color:var(--clay);font-weight:500}
+
+/* ===== ABOUT 03 — Balmain ===== */
+.about-03{
+  position:relative;overflow:hidden;
+  padding:120px 56px;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  display:grid;grid-template-columns:1fr .9fr;gap:90px;align-items:center;
+}
+.wm-03{top:-.12em;right:40px}
+.a3-img{order:2}
+.a3-frame{background:var(--white);padding:12px;border-radius:6px;box-shadow:0 26px 60px -24px rgba(34,30,26,.18)}
+.a3-frame .ph{border-radius:3px;overflow:hidden;aspect-ratio:3/2}
+.a3-frame img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.a3-frame:hover img{transform:scale(1.04)}
+
+/* ===== ABOUT 04 — Team ===== */
+.about-04{
+  position:relative;overflow:hidden;
+  padding:120px 56px 130px;
+  display:grid;grid-template-columns:1fr .72fr;gap:90px;align-items:center;
+}
+.wm-04{bottom:-.1em;left:40px}
+.a4-frame{background:var(--white);padding:12px;border-radius:6px;box-shadow:0 26px 60px -24px rgba(34,30,26,.18);max-width:340px;margin-left:auto}
+.a4-frame .ph{border-radius:3px;overflow:hidden;aspect-ratio:3/4}
+.a4-frame img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .7s var(--ease)}
+.a4-frame:hover img{transform:scale(1.04)}
+.statement{margin-top:18px;font-style:italic}
+.statement strong{font-style:normal;color:var(--ink)}
+
+/* ===== SERVICES ===== */
+.services{padding:120px 56px;background:var(--paper)}
+.services-head{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  max-width:780px;margin:0 auto 56px;
+  border-bottom:1px solid var(--line);padding-bottom:32px;
+}
+.services-list{list-style:none;max-width:780px;margin:0 auto}
+.s-item{
+  display:grid;grid-template-columns:1fr auto auto;gap:20px;align-items:baseline;
+  padding:22px 0;border-bottom:1px solid var(--line);
+}
+.s-name{font-family:'Oswald',sans-serif;font-size:19px;font-weight:600;font-style:italic}
+.s-variant{font-size:11px;color:var(--ink-soft);letter-spacing:.04em;margin-top:3px;font-weight:700}
+.s-dur{font-size:11px;color:var(--ink-soft);letter-spacing:.06em;text-align:right;white-space:nowrap}
+.s-price{font-family:'Oswald',sans-serif;font-size:21px;font-weight:600;font-style:italic;text-align:right;white-space:nowrap}
+
+/* ===== REVIEWS ===== */
+.reviews{background:var(--sand);padding:120px 56px}
+.reviews-top{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  max-width:1180px;margin:0 auto 56px;
+}
+.r-score{text-align:right}
+.r-num{font-family:'Oswald',sans-serif;font-size:56px;font-weight:300;font-style:italic;line-height:1}
+.r-stars{color:var(--clay);font-size:15px;margin-top:4px;letter-spacing:1px}
+.r-cnt{font-size:11px;color:var(--ink-soft);margin-top:5px;letter-spacing:.06em}
+.reviews-grid{max-width:920px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.r-card{
+  background:var(--white);border-radius:8px;padding:30px;
+  box-shadow:0 16px 40px -22px rgba(34,30,26,.12);
+  transition:transform .4s var(--ease),box-shadow .4s var(--ease);
+}
+.r-card:hover{transform:translateY(-5px);box-shadow:0 24px 56px -22px rgba(34,30,26,.16)}
+.r-card .stars{color:var(--clay);font-size:12px;margin-bottom:13px;letter-spacing:1px}
+.r-text{font-size:13.5px;line-height:1.75;color:var(--ink-soft);font-weight:700;margin-bottom:22px}
+.r-author{display:flex;align-items:center;gap:11px;padding-top:18px;border-top:1px solid var(--line)}
+.r-av{
+  width:32px;height:32px;border-radius:50%;background:var(--sand);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Aileron',sans-serif;font-size:13px;color:var(--ink);flex-shrink:0;
+}
+.r-name{font-size:12.5px;font-weight:500}
+.r-meta{font-size:10px;color:var(--ink-soft);margin-top:1px}
+
+/* ===== BOOKING ===== */
+.booking{
+  position:relative;padding:140px 24px;text-align:center;overflow:hidden;
+}
+.booking-wm{top:50%;left:50%;transform:translate(-50%,-50%);font-size:18vw;white-space:nowrap}
+.booking h2{margin-top:18px;position:relative;font-family:'Oswald',sans-serif;font-weight:600;font-style:italic}
+.booking-sub{
+  position:relative;margin:24px auto 50px;max-width:420px;
+  font-size:14.5px;line-height:1.8;color:var(--ink-soft);font-weight:700;
+}
+.booking-btns{position:relative;display:flex;justify-content:center;gap:18px;flex-wrap:wrap}
+
+/* ===== MAP ===== */
+.map{background:var(--white);padding:120px 56px}
+.map-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center}
+.map-list{display:flex;flex-direction:column;gap:22px;margin-top:30px}
+.map-row{display:flex;gap:15px;align-items:flex-start}
+.map-ic{
+  width:38px;height:38px;border-radius:50%;background:var(--sand);
+  display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;
+}
+.map-dt{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--clay);margin-bottom:3px}
+.map-dv{font-size:13.5px;color:var(--ink);line-height:1.55;font-weight:700}
+.map-embed{
+  border-radius:8px;overflow:hidden;height:420px;
+  border:1px solid var(--line);box-shadow:0 20px 50px -26px rgba(34,30,26,.16);
+}
+.map-embed iframe{width:100%;height:100%;border:none}
+
+/* ===== FOOTER ===== */
+footer{background:var(--sand-deep);padding:64px 56px 36px}
+.f-top{
+  max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:56px;
+  padding-bottom:44px;border-bottom:1px solid var(--line);
+}
+.f-brand{font-family:'Oswald',sans-serif;font-size:22px;font-weight:600;font-style:italic;letter-spacing:.02em;margin-bottom:14px}
+.f-desc{font-size:12.5px;color:var(--ink-soft);line-height:1.75;max-width:270px;font-weight:700}
+.f-col-t{font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--clay);margin-bottom:18px}
+.f-links{list-style:none;display:flex;flex-direction:column;gap:9px}
+.f-links a{font-size:13px;color:var(--ink-soft);text-decoration:none;font-weight:300;transition:color .2s}
+.f-links a:hover{color:var(--ink)}
+.f-bottom{
+  max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;
+  padding-top:28px;font-size:10px;color:var(--ink-soft);letter-spacing:.08em;text-transform:uppercase;
+}
+
+/* ===== REVEALS ===== */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .85s var(--ease),transform .85s var(--ease)}
+.rv.on{opacity:1;transform:none}
+.rv-img{opacity:0;transform:translateY(24px) scale(.96);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.rv-img.on{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.32s}.d4{transition-delay:.44s}.d5{transition-delay:.56s}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:980px){
+  nav{padding:0 22px}
+  .nav-links{display:none}
+  .hero{padding:120px 22px 0}
+  .hero-frame{margin-top:54px}
+  .about-01,.about-03,.about-04{padding:80px 22px;grid-template-columns:1fr;gap:44px}
+  .a3-img{order:0}
+  .a4-frame{max-width:280px;margin:0}
+  .gallery{padding:80px 22px}
+  .gallery-grid{grid-template-columns:1fr;gap:24px;max-width:380px}
+  .products{padding:80px 22px}
+  .products-grid{grid-template-columns:1fr;max-width:340px}
+  .services{padding:80px 22px}
+  .services-head{flex-direction:column;align-items:flex-start;gap:18px}
+  .reviews{padding:80px 22px}
+  .reviews-top{flex-direction:column;align-items:flex-start;gap:20px}
+  .r-score{text-align:left}
+  .reviews-grid{grid-template-columns:1fr}
+  .booking{padding:100px 22px}
+  .map{padding:80px 22px}
+  .map-inner{grid-template-columns:1fr;gap:40px}
+  footer{padding:48px 22px 28px}
+  .f-top{grid-template-columns:1fr;gap:30px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="nav-logo serif-i">Select Studio</a>
+  <ul class="nav-links">
+    <li><a href="#about-01">O nas</a></li>
+    <li><a href="#services">Usługi</a></li>
+    <li><a href="#reviews">Opinie</a></li>
+    <li><a href="#map">Lokalizacja</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="https://www.instagram.com/_selectstudio?igsh=MXRudnY1Z2V0bW44Mw==" target="_blank" class="icon-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5.5" ry="5.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="0.5" fill="currentColor" stroke="none"/></svg></a>
+    <a href="https://booksy.com/pl-pl/328805_select-studio_barber-shop_59620_plewiska#ba_s=seo" target="_blank" class="btn btn-fill">Zarezerwuj</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div class="eyebrow rv">Barber Shop &middot; Plewiska</div>
+    <h1 class="serif rv d1">Styl zaczyna się<br>od <em>wyboru.</em></h1>
+    <p class="hero-sub rv d2">Wybierz nas. Wybierz swój styl.<br>Bo dobry wygląd zaczyna się od właściwego wyboru. My zadbamy o resztę.</p>
+    <div class="hero-cta rv d3">
+      <a href="https://booksy.com/pl-pl/328805_select-studio_barber-shop_59620_plewiska#ba_s=seo" target="_blank" class="btn btn-fill btn-fill-lg">Umów się już dziś</a>
+      <div class="hero-rating"><span class="stars">★★★★★</span> 5.0 &middot; 23 opinie na Google</div>
+    </div>
+  </div>
+
+  <div class="hero-frame rv-img d4">
+    <div class="ph"><img src="img-01-salon.jpg" alt="Select Studio — wnętrze salonu"></div>
+    <div class="frame-cap"><span class="num">No. 01</span><span>Wnętrze Studia</span></div>
+  </div>
+</section>
+
+<!-- RIBBON -->
+<div class="ribbon" aria-hidden="true">
+  <div class="ribbon-track">
+    <span class="ribbon-item"><span class="ribbon-dot"></span>Stay Simple Stay True</span>
+    <span class="ribbon-item"><span class="ribbon-dot"></span>Balmain Paris</span>
+    <span class="ribbon-item"><span class="ribbon-dot"></span>5.0 — 23 Opinie</span>
+    <span class="ribbon-item"><span class="ribbon-dot"></span>Jarzębinowa 1/35 Plewiska</span>
+    <span class="ribbon-item"><span class="ribbon-dot"></span>Premium w Dostępnej Cenie</span>
+    <span class="ribbon-item"><span class="ribbon-dot"></span>Stay Simple Stay True</span>
+    <span class="ribbon-item"><span class="ribbon-dot"></span>Balmain Paris</span>
+    <span class="ribbon-item"><span class="ribbon-dot"></span>5.0 — 23 Opinie</span>
+    <span class="ribbon-item"><span class="ribbon-dot"></span>Jarzębinowa 1/35 Plewiska</span>
+    <span class="ribbon-item"><span class="ribbon-dot"></span>Premium w Dostępnej Cenie</span>
+  </div>
+</div>
+
+<!-- ABOUT 01 -->
+<section class="about-01" id="about-01">
+  <span class="wm wm-01">01</span>
+  <div class="rv">
+    <div class="eyebrow">O Nas</div>
+    <h2 class="serif block-h">Nowy standard<br>lokalnego rynku.</h2>
+  </div>
+  <div class="rv d2" style="align-self:end">
+    <p class="block-p">Select Studio powstało z myślą o wyznaczeniu nowego standardu na lokalnym rynku, tworząc miejsce bezkonkurencyjne pod względem jakości oraz samej wartości usługi. Nasz salon został od podstaw zaprojektowany w&nbsp;asyście doświadczonych fryzjerów, którzy doskonale rozumieją każdą potrzebę pojawiającą się podczas wizyty.</p>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="gallery-head rv">
+    <div class="eyebrow">Przestrzeń</div>
+    <h2 class="serif block-h">Każdy detal.</h2>
+    <p class="block-p">Spędziliśmy setki godzin, dbale dopracowując każdy detal wnętrza, aby estetyka współgrała z najwyższym komfortem i&nbsp;funkcjonalnością.</p>
+  </div>
+  <div class="gallery-grid">
+    <div class="g-frame rv-img">
+      <div class="ph"><img src="img-02-poczekalnia.jpg" alt="Select Studio — poczekalnia" loading="lazy"></div>
+      <div class="g-cap"><span>Poczekalnia</span><span class="num">No. 02</span></div>
+    </div>
+    <div class="g-frame rv-img d2">
+      <div class="ph"><img src="img-03-balmain-perfum.jpg" alt="Select Studio — stanowisko pracy" loading="lazy"></div>
+      <div class="g-cap"><span>Balmain Cardamom 1974</span><span class="num">No. 03</span></div>
+    </div>
+    <div class="g-frame rv-img d4">
+      <div class="ph"><img src="img-04-zewnatrz.jpg" alt="Select Studio — strefa relaksu" loading="lazy"></div>
+      <div class="g-cap"><span>Strefa Relaksu</span><span class="num">No. 04</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT 03 — BALMAIN -->
+<section class="about-03" id="balmain">
+  <span class="wm wm-03">03</span>
+  <div class="rv">
+    <div class="eyebrow">Kosmetyki</div>
+    <h2 class="serif block-h">Balmain<br>Paris.</h2>
+    <p class="block-p">Wzorujemy się na estetyce światowych domów mody, z tego względu w&nbsp;codziennej pracy stawiamy na kosmetyki marki Balmain. Wykorzystujemy ich unikalne produkty do stylizacji, a&nbsp;każdą usługę wieńczymy oryginalnymi perfumami do włosów tej marki. Pozwalają one cieszyć się nienagannym zapachem przez resztę dnia.</p>
+  </div>
+  <div class="a3-img a3-frame rv-img d2">
+    <div class="ph"><img src="img-05-balmain-produkty.jpg" alt="Balmain Paris — produkty Select Studio" loading="lazy"></div>
+    <div class="frame-cap"><span class="num">No. 05</span><span>Balmain Paris</span></div>
+  </div>
+</section>
+
+<!-- ABOUT 04 — TEAM -->
+<section class="about-04" id="team">
+  <span class="wm wm-04">04</span>
+  <div class="rv">
+    <div class="eyebrow">Zespół</div>
+    <h2 class="serif block-h">Pasja i<br>rzemiosło.</h2>
+    <p class="block-p">Nasz zespół to specjaliści z wieloletnim doświadczeniem, którzy z powodzeniem działają również na planach zdjęciowych czy w projektach branżowych. Całe to estetyczne wyczucie, znajomość współczesnych trendów oraz dbałość o najmniejsze niuanse przenosimy bezpośrednio na codzienne rzemiosło na fotelu.</p>
+    <p class="block-p statement">Udowadniamy, że standard premium nie musi wiązać się z barierą cenową. W pełni konkurencyjnej cenie oferujemy poziom usług, który znacząco odchodzi od rynkowej przeciętności. <strong>Sprawdź sam.</strong></p>
+  </div>
+  <div class="a4-frame rv-img d2">
+    <div class="ph"><img src="img-06-styl.jpg" alt="Select Studio — barber przy pracy" loading="lazy"></div>
+    <div class="frame-cap"><span class="num">No. 06</span><span>Rzemiosło</span></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-head rv">
+    <div>
+      <div class="eyebrow">Cennik</div>
+      <h2 class="serif block-h" style="font-size:clamp(30px,3.4vw,42px);margin-top:14px">Nasze usługi.</h2>
+    </div>
+    <a href="https://booksy.com/pl-pl/328805_select-studio_barber-shop_59620_plewiska#ba_s=seo" target="_blank" class="btn btn-fill">Zarezerwuj</a>
+  </div>
+  <ul class="services-list">
+    <li class="s-item rv">
+      <div><div class="s-name serif">Strzyżenie Męskie</div><div class="s-variant">Włosy krótkie</div></div>
+      <div class="s-dur">45 min</div><div class="s-price serif">80 zł</div>
+    </li>
+    <li class="s-item rv d1">
+      <div><div class="s-name serif">Strzyżenie Męskie</div><div class="s-variant">Włosy długie</div></div>
+      <div class="s-dur">1 h</div><div class="s-price serif">100 zł</div>
+    </li>
+    <li class="s-item rv d2">
+      <div><div class="s-name serif">Włosy + Broda</div><div class="s-variant">Pełny pakiet</div></div>
+      <div class="s-dur">1 h 20 min</div><div class="s-price serif">120 zł</div>
+    </li>
+    <li class="s-item rv d3">
+      <div><div class="s-name serif">Strzyżenie Maszynką</div><div class="s-variant">Precyzyjne wykończenie</div></div>
+      <div class="s-dur">30 min</div><div class="s-price serif">70 zł</div>
+    </li>
+    <li class="s-item rv">
+      <div><div class="s-name serif">Strzyżenie Brody</div><div class="s-variant">Modelowanie</div></div>
+      <div class="s-dur">30 min</div><div class="s-price serif">60 zł</div>
+    </li>
+    <li class="s-item rv d1">
+      <div><div class="s-name serif">Strzyżenie Boków</div><div class="s-variant">Odświeżenie konturu</div></div>
+      <div class="s-dur">25 min</div><div class="s-price serif">60 zł</div>
+    </li>
+    <li class="s-item rv d2">
+      <div><div class="s-name serif">Farbowanie Brody</div><div class="s-variant">Tonowanie i koloryzacja</div></div>
+      <div class="s-dur">20 min</div><div class="s-price serif">40 zł</div>
+    </li>
+  </ul>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="reviews-top">
+    <div class="rv">
+      <div class="eyebrow">Opinie Klientów</div>
+      <h2 class="serif block-h">Co mówią<br>nasi goście.</h2>
+    </div>
+    <div class="r-score rv d2">
+      <div class="r-num serif">5.0</div>
+      <div class="r-stars">★★★★★</div>
+      <div class="r-cnt">23 potwierdzone opinie</div>
+    </div>
+  </div>
+  <div class="reviews-grid">
+    <div class="r-card rv">
+      <div class="stars">★★★★★</div>
+      <p class="r-text">Jestem bardzo zadowolony ze strzyżenia. Wszystko zostało wykonane dokładnie i zgodnie z moimi oczekiwaniami. Miła atmosfera i profesjonalne podejście. Na pewno wrócę ponownie.</p>
+      <div class="r-author"><div class="r-av">M</div><div><div class="r-name">Mikołaj</div><div class="r-meta">Barber: Adrian &middot; cze 2026</div></div></div>
+    </div>
+    <div class="r-card rv d1">
+      <div class="stars">★★★★★</div>
+      <p class="r-text">To jest to! Adrian jest chodzącą definicją pasji i profesjonalizmu. Dzięki i do zobaczenia!</p>
+      <div class="r-author"><div class="r-av">J</div><div><div class="r-name">Jędrzej</div><div class="r-meta">Barber: Adrian &middot; cze 2026</div></div></div>
+    </div>
+    <div class="r-card rv d2">
+      <div class="stars">★★★★★</div>
+      <p class="r-text">Najlepszy barber w okolicy! Piękny, nowy salon, konkurencja nie ma szans!</p>
+      <div class="r-author"><div class="r-av">B</div><div><div class="r-name">Bartosz</div><div class="r-meta">Barber: Kuba &middot; cze 2026</div></div></div>
+    </div>
+    <div class="r-card rv d1">
+      <div class="stars">★★★★★</div>
+      <p class="r-text">Polecam z czystym sumieniem nowo otwarty salon! Profesjonalna obsługa i świetna atmosfera. Bardzo zadowolony z jakości strzyżenia.</p>
+      <div class="r-author"><div class="r-av">M</div><div><div class="r-name">Marcin</div><div class="r-meta">Barber: Adrian &middot; cze 2026</div></div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking" id="booking">
+  <span class="wm booking-wm">SELECT</span>
+  <div class="eyebrow rv" style="justify-content:center">Rezerwacja Online</div>
+  <h2 class="serif rv d1" style="font-size:clamp(40px,6vw,76px);font-weight:300;font-style:italic;line-height:1.02">Umów się<br>już dziś.</h2>
+  <p class="booking-sub rv d2">Zarezerwuj termin online w kilka sekund. Bądź na bieżąco z naszą pracą na Instagramie.</p>
+  <div class="booking-btns rv d3">
+    <a href="https://booksy.com/pl-pl/328805_select-studio_barber-shop_59620_plewiska#ba_s=seo" target="_blank" class="btn btn-fill btn-fill-lg">Booksy — Zarezerwuj</a>
+    <a href="https://www.instagram.com/_selectstudio?igsh=MXRudnY1Z2V0bW44Mw==" target="_blank" class="btn btn-outline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5.5" ry="5.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="0.5" fill="currentColor" stroke="none"/></svg>&nbsp; Instagram</a>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="map" id="map">
+  <div class="map-inner">
+    <div class="rv">
+      <div class="eyebrow">Lokalizacja</div>
+      <h2 class="serif block-h" style="font-size:clamp(30px,3.2vw,42px)">Znajdziesz<br>nas tutaj.</h2>
+      <div class="map-list">
+        <div class="map-row"><div class="map-ic">📍</div><div><div class="map-dt">Adres</div><div class="map-dv">Jarzębinowa 1/35<br>62-064 Plewiska</div></div></div>
+        <div class="map-row"><div class="map-ic">🅿️</div><div><div class="map-dt">Parking</div><div class="map-dv">Bezpłatny parking przy salonie</div></div></div>
+        <div class="map-row"><div class="map-ic">♿</div><div><div class="map-dt">Dostępność</div><div class="map-dv">Dostosowany dla osób z niepełnosprawnościami &middot; Pet friendly</div></div></div>
+      </div>
+      <a href="https://maps.google.com/?q=Jarzebinowa+1%2F35,+62-064+Plewiska" target="_blank" class="btn btn-fill" style="margin-top:32px">🗺&nbsp; Nawiguj do salonu</a>
+    </div>
+    <div class="map-embed rv-img d2">
+      <iframe src="https://maps.google.com/maps?q=Jarze%C5%BCbinowa+1%2F35,+62-064+Plewiska&t=&z=17&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Select Studio na mapie"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-top">
+    <div>
+      <div class="f-brand serif-i">Select Studio</div>
+      <p class="f-desc">Stay Simple Stay True.<br>Premium barber shop w Plewiska — gdzie rzemiosło spotyka świadomie wybrany detal.</p>
+    </div>
+    <div>
+      <div class="f-col-t">Kontakt</div>
+      <ul class="f-links">
+        <li><a href="https://maps.google.com/?q=Jarzebinowa+1%2F35,+62-064+Plewiska" target="_blank">Jarzębinowa 1/35, Plewiska</a></li>
+        <li><a href="https://booksy.com/pl-pl/328805_select-studio_barber-shop_59620_plewiska#ba_s=seo" target="_blank">Rezerwacja — Booksy</a></li>
+        <li><a href="https://www.instagram.com/_selectstudio?igsh=MXRudnY1Z2V0bW44Mw==" target="_blank">Instagram</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="f-col-t">Usługi</div>
+      <ul class="f-links">
+        <li><a href="#services">Strzyżenie Męskie</a></li>
+        <li><a href="#services">Włosy + Broda</a></li>
+        <li><a href="#services">Strzyżenie Maszynką</a></li>
+        <li><a href="#services">Farbowanie Brody</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="f-bottom">
+    <span>© 2025 Select Studio · Plewiska</span>
+    <span>★★★★★ 5.0 · 23 opinie</span>
+  </div>
+  <div style="text-align:center;padding-top:16px;font-size:10px;color:rgba(34,30,26,.3);letter-spacing:.08em">Made by Franciszek Burzyński</div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); }
+  });
+},{threshold:.12,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.rv,.rv-img').forEach(el=>io.observe(el));
+
+const nav=document.querySelector('nav');
+window.addEventListener('scroll',()=>{
+  nav.style.borderBottomColor = window.scrollY>40 ? 'var(--line)' : 'rgba(224,212,188,.5)';
+},{passive:true});
+</script>
+</body>
+</html>
